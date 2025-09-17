@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrainSim3D</title>
+    <link rel="stylesheet" href="/src/style.css">
+  </head>
+  <body>
+    <div id="app">
+        <canvas id="game-canvas"></canvas>
+        <div class="modern-ui">
+            <div class="hud-flex">
+                <!-- Linker info-panel -->
+                <div class="info-panel">
+                    <div class="station-main">Central Station</div>
+                    <div class="station-next">Next station <span id="next-station">North Point</span> <span class="platform">Plat. 2</span></div>
+                    <div class="info-row">
+                        <span class="info-label" id="time-display">12:00:00</span>
+                        <span class="info-label">Target: <span class="target-time">12:05 <span class="target-ontime">(+0:30)</span></span></span>
+                        <span class="info-label">0.36 mi</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-badge">TGV-01</span>
+                        <span class="info-badge">R012</span>
+                        <span class="info-badge">8 carriages</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="signal-indicator green"></span>
+                        <span class="info-label">SIG-A1</span>
+                        <span class="info-label">0.08 mi</span>
+                    </div>
+                </div>
+                <!-- Midden controls-panel -->
+                <div class="controls-panel">
+                    <div class="controls-row">
+                        <button class="hud-btn" id="door-btn">🚪</button>
+                        <button class="hud-btn" id="lock-btn">🔒</button>
+                        <button class="hud-btn" id="horn-btn">📢</button>
+                        <button class="hud-btn" id="camera-btn">📷</button>
+                    </div>
+                    <div class="controls-row">
+                        <div class="speed-limit">
+                            <div class="speed-limit-label">Current</div>
+                            <div class="speed-limit-value" id="current-speed-limit">45</div>
+                        </div>
+                         <div class="speed-limit">
+                            <div class="speed-limit-label">Max</div>
+                            <div class="speed-limit-value" id="max-speed-limit">100</div>
+                        </div>
+                        <div class="throttle-group">
+                            <label for="throttle-slider" class="throttle-label">Throttle</label>
+                            <input type="range" min="0" max="100" value="0" id="throttle-slider" class="throttle-slider" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Rechter snelheidsmeter -->
+                <div class="speedometer-panel">
+                    <svg viewBox="0 0 100 100" class="speedometer">
+                        <circle class="speedometer-bg" cx="50" cy="50" r="45" />
+                        <circle class="speedometer-progress" cx="50" cy="50" r="45" />
+                        <text class="speedometer-text" x="50" y="55" id="speed-display">0</text>
+                    </svg>
+                </div>
+            </div>
+            <div class="notification" id="notification"></div>
+        </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
